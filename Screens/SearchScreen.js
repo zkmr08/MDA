@@ -14,7 +14,7 @@ export default class SearchScreen extends Component {
         this.search = this.search.bind(this)
     }
 
-    themeMode() { this.setState({ darkMode: !this.state.darkMode }) }
+    themeMode() { this.setState({ darkMode: !this.state.darkMode }), Keyboard.dismiss() }
 
     itemNameChange(itemName) { this.setState({ itemName }) }
 

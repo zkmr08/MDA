@@ -66,11 +66,11 @@ export default class ResultScreen extends Component {
         this.togglePicker();
         this.setState({ checked: index })
 
-        if (index == 0) { this.setState({ filter: '', page: 1, data: [] }, () => this.fetchResult());}
-        else if (index == 1) { this.setState({ filter: '&sort_dir=asc&sort_attr=item_name', page: 1, data: [] }, () => this.fetchResult());}
-        else if (index == 2) { this.setState({ filter: '&sort_dir=desc&sort_attr=item_name', page: 1, data: [] }, () => this.fetchResult());}
-        else if (index == 3) { this.setState({ filter: '&sort_dir=asc&sort_attr=item_price', page: 1, data: [] }, () => this.fetchResult());}
-        else if (index == 4) { this.setState({ filter: '&sort_dir=desc&sort_attr=item_price', page: 1, data: [] }, () => this.fetchResult());}
+        if (index == 0) { this.setState({ filter: '', page: 1, data: [] }, () => this.fetchResult()); }
+        else if (index == 1) { this.setState({ filter: '&sort_dir=asc&sort_attr=item_name', page: 1, data: [] }, () => this.fetchResult()); }
+        else if (index == 2) { this.setState({ filter: '&sort_dir=desc&sort_attr=item_name', page: 1, data: [] }, () => this.fetchResult()); }
+        else if (index == 3) { this.setState({ filter: '&sort_dir=asc&sort_attr=item_price', page: 1, data: [] }, () => this.fetchResult()); }
+        else if (index == 4) { this.setState({ filter: '&sort_dir=desc&sort_attr=item_price', page: 1, data: [] }, () => this.fetchResult()); }
     }
 
     renderItem = ({ item }) => {
@@ -90,7 +90,7 @@ export default class ResultScreen extends Component {
                         {item.item_name}
                     </Text>
                     <Text style={{ color: this.props.navigation.state.params.darkMode ? 'white' : 'black' }}>
-                        {item.course_type} | {item.item_price} | id: {item.item_id}
+                        {item.course_type} | {item.item_price}
                     </Text>
                     <Text style={{ color: this.props.navigation.state.params.darkMode ? 'white' : 'black' }}>
                         {item.item_description.replace(regex, '')}
@@ -156,9 +156,9 @@ export default class ResultScreen extends Component {
                                 margin: 0, padding: 15, bottom: 0, left: 0, right: 0, position: 'absolute', backgroundColor: this.props.navigation.state.params.darkMode ? 'black' : '#00adb5'
                             }}>
                                 <View style={{ flex: 1, flexDirection: 'row', justifyContent: 'space-between' }}>
-                                    <Text style={{ fontWeight: 'bold', color: this.props.navigation.state.params.darkMode ? 'white' : 'black' }}>Filters:</Text>
+                                    <Text style={[styles.text, { color: this.props.navigation.state.params.darkMode ? 'white' : 'black' }]}>Filters:</Text>
                                     <TouchableHighlight onPress={() => this.togglePicker()}>
-                                        <Text style={{ fontWeight: 'bold', color: this.props.navigation.state.params.darkMode ? 'white' : 'black' }}>Dismiss</Text>
+                                        <Text style={[styles.text, { color: this.props.navigation.state.params.darkMode ? 'white' : 'black' }]}>Dismiss</Text>
                                     </TouchableHighlight>
                                 </View>
                                 {this.state.filters.map((filters, index) => {
@@ -203,6 +203,6 @@ const styles = StyleSheet.create({
     },
     text: {
         fontWeight: 'bold',
-        fontSize: 15
+        fontSize: 20
     }
 })
