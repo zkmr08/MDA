@@ -16,6 +16,10 @@ export default class SearchScreen extends Component {
 
     themeMode() { this.setState({ darkMode: !this.state.darkMode }) }
 
+    itemNameChange(itemName) { this.setState({ itemName }) }
+
+    courseTypeChange(courseType) { this.setState({ courseType }) }
+
     search() {
         if (this.state.itemName.match(/^s*$/)) { return }
         let courseTypeString = ''
@@ -29,17 +33,21 @@ export default class SearchScreen extends Component {
                 else { courseTypeString = courseTypeString + '&type[]=' + courseTypeEntered }
             }
         }
+        this.props.navigation.navigate('Results', { courseType: courseTypeString, itemName: itemNameString, darkMode: this.state.darkMode });
 
         this.setState({
             itemName: '',
             courseType: ''
         })
-        Keyboard.dismiss
+        Keyboard.dismiss()
     }
 
-    itemNameChange(itemName) { this.setState({ itemName }) }
-
-    courseTypeChange(courseType) { this.setState({ courseType }) }
+    static navigationOptions = ({ navigation }) => {
+        let headerTitle = 'Search Engine';
+        return {
+            headerTitle,
+        }
+    }
 
     render() {
         return (
@@ -48,7 +56,6 @@ export default class SearchScreen extends Component {
                     <TouchableOpacity onPress={() => this.themeMode()}>
                         {this.state.darkMode ? <Text style={styles.mode}> Light mode </Text> : <Text style={styles.mode}> Dark mode </Text>}
                     </TouchableOpacity>
-                    <Text style={styles.header}> Search Engine </Text>
                     <TextInput
                         style={styles.textInput}
                         placeholder='Item Name'
@@ -91,12 +98,6 @@ const styles = StyleSheet.create({
         backgroundColor: '#e3f6f5',
         padding: 10
     },
-    header: {
-        fontSize: 50,
-        color: '#df42d1',
-        margin: 10,
-        fontWeight: 'bold'
-    },
     searchButton: {
         backgroundColor: '#00adb5',
         padding: 15,
@@ -107,7 +108,8 @@ const styles = StyleSheet.create({
     searchButtonText: {
         color: 'white',
         fontSize: 20,
-        textAlign: 'center'
+        textAlign: 'center',
+        fontWeight: 'bold'
     },
     mode: {
         fontSize: 20,
@@ -115,8 +117,10 @@ const styles = StyleSheet.create({
         borderRadius: 15,
         color: 'white',
         marginTop: 25,
+        marginBottom: 30,
         width: 120,
         height: 30,
-        textAlign: 'center'
+        textAlign: 'center',
+        fontWeight: 'bold'
     }
 })
