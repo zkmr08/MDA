@@ -103,7 +103,7 @@ export default class ResultScreen extends Component {
     renderSeparator = () => {
         return (
             <View
-                style={{ height: 1, width: '100%', backgroundColor: 'black' }}>
+                style={{ height: 1, width: '100%', backgroundColor: this.props.navigation.state.params.darkMode ? 'white' : 'black' }}>
             </View>
         )
     }
