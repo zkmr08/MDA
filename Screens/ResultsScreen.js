@@ -127,7 +127,11 @@ export default class ResultScreen extends Component {
 
     render() {
         return (
-            this.state.isLoading ? <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}><ActivityIndicator size='large' color='#330066' animating /></View>
+            this.state.isLoading ? <View style={{
+                flex: 1, justifyContent: 'center', alignItems: 'center', backgroundColor: this.props.navigation.state.params.darkMode ? '#222831' : '#bae8e8'
+            }}>
+                <ActivityIndicator size='large' color='#00adb5' animating />
+            </View>
                 :
                 <View style={[styles.container, { backgroundColor: this.props.navigation.state.params.darkMode ? '#222831' : '#bae8e8' }]}>
                     <View style={styles.container}>
