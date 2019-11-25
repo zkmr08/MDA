@@ -92,7 +92,7 @@ export default class ResultScreen extends Component {
                     <Text style={{ color: this.props.navigation.state.params.darkMode ? 'white' : 'black' }}>
                         {item.course_type} | {item.item_price}
                     </Text>
-                    <Text style={{ color: this.props.navigation.state.params.darkMode ? 'white' : 'black' }}>
+                    <Text numberOfLines={4} style={{ color: this.props.navigation.state.params.darkMode ? 'white' : 'black' }}>
                         {item.item_description.replace(regex, '')}
                     </Text>
                 </View>
