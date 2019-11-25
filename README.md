@@ -19,4 +19,4 @@ present the results in a list on another screen with the following informations
 ● Description plain text - parsing html code to get the plain text only
 ● Dark/light theme
 
-<img src="Screenshots/01.jpg" width="170" /> <img src="Screenshots/02.jpg" width="170" /> <img src="Screenshots/03.jpg" width="170" /> <img src="Screenshots/04.jpg" width="170" /> <img src="Screenshots/05.jpg" width="170" />
+<img src="Screenshots/01.jpg" width="165" /> <img src="Screenshots/02.jpg" width="165" /> <img src="Screenshots/03.jpg" width="165" /> <img src="Screenshots/04.jpg" width="165" /> <img src="Screenshots/05.jpg" width="165" />
